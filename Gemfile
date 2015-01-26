@@ -12,6 +12,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'geocoder'
 gem 'devise'
+gem 'slide-down-alerts-rails'
 
 group :development, :test do
   gem 'byebug'
