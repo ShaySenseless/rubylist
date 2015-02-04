@@ -12,10 +12,10 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'geocoder'
 gem 'devise'
 gem 'slide-down-alerts-rails'
+gem 'pg'
 
 group :production do
 	gem 'rails_12factor'
-	gem 'pg'
 end
 
 group :development, :test do

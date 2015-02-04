@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20150126011127) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "categories", force: :cascade do |t|
     t.string "name"
   end
@@ -29,12 +32,10 @@ ActiveRecord::Schema.define(version: 20150126011127) do
     t.integer  "subcategory_id"
     t.float    "latitude"
     t.float    "longitude"
-    t.integer  "users_id"
     t.integer  "user_id"
   end
 
-  add_index "listings", ["user_id"], name: "index_listings_on_user_id"
-  add_index "listings", ["users_id"], name: "index_listings_on_users_id"
+  add_index "listings", ["user_id"], name: "index_listings_on_user_id", using: :btree
 
   create_table "subcategories", force: :cascade do |t|
     t.string  "name"
@@ -56,7 +57,7 @@ ActiveRecord::Schema.define(version: 20150126011127) do
     t.datetime "updated_at"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
 end
